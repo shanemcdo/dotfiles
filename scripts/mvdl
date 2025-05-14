@@ -14,6 +14,7 @@ $prg [FLAGS] [DEST]
     DEST - Where the file will be moved to [Default: "."]
     FLAGS:
       -d, --dry-run           - Do not move file
+	  -D, --date              - prepend the date to the file
       -s, --silent            - Do not print to stdout
       -f PATH, --folder PATH  - Set the downloads folder [Default: "~/Downloads"]
       -c, --cp                - Copy instead of move the file
@@ -28,6 +29,7 @@ read_args(){
         shift
         case "$arg" in # convert all long flags into short
             --dry-run) arg='-d';;
+            --date) arg='-D';;
             --silent) arg='-s';;
             --folder) arg='-f';;
             --copy) arg='-c';;
@@ -44,6 +46,7 @@ read_args(){
                     case "$flag" in
                         f) need_arg='true' && flag_n_arg="$flag";;
                         d) $dry_run && die "repeated flag '-$flag'" || dry_run='true';;
+                        D) $date && die "repeated flag '-$flag'" || date='true';;
                         s) $silent && die "repeated flag '-$flag'" || silent='true';;
                         c) $copy && die "repeated flag '-$flag'" || copy='true';;
                         e) $use_extension && die "repeated flag '-$flag'" || use_extension='true';;
@@ -75,6 +78,7 @@ read_args(){
 
 prg='mvdl'
 dry_run='false'
+date='false'
 silent='false'
 copy='false'
 use_extension='false'
@@ -89,6 +93,12 @@ file="$dl_dir/$(ls -t "$dl_dir" | head -n1)"
 if $use_extension; then
     [ "$dest" = '.' ] && die "Cannot use '--extension' flag without giving a file name"
     dest="$dest.${file##*.}"
+fi
+if $date; then
+	if [ "$dest" = '.' ]; then
+		dest="$(basename "$file")"
+	fi
+	dest="$(date "+%Y%m%d")$dest"
 fi
 $silent || echo "$file -> $dest"
 $dry_run || "$mv_prg" "$file" "$dest"
