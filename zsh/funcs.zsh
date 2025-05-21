@@ -270,6 +270,16 @@ weightt()(
     ./main.py
 )
 
+# Stegonographic encoder/decoder
+# repo: git@github.com:shanemcdo/steganography.git
+# dir: $CODING_DIR/python/steganography
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
+steg()(
+    cd "$CODING_DIR/python/steganography"
+    . venv/bin/activate
+    ./steganography.py "$@"
+)
+
 # just some easy tools for cmake
 # run this to set dir to go to
 mk-cmake-tools() {
