@@ -362,7 +362,7 @@ gib() {
 fim() {
 	local args=()
 	local flags=()
-	while [ $# -gt 0 ]; do 
+	while [ $# -gt 0 ]; do
 		case "$1" in
 			-*) flags+=("$1");;
 			*) args+=("$1");;
@@ -370,4 +370,22 @@ fim() {
 		shift
 	done
 	vim "${flags[@]}" $( gib "${args[@]}" )
+}
+
+# do a diff on the hexdumps of two files
+hexdiff() {
+	local args=()
+	local flags=()
+	while [ $# -gt 0 ]; do
+		case "$1" in
+			-*) flags+=("$1");;
+			*) args+=("$1");;
+		esac
+		shift
+	done
+	if [ "${#args[@]}" -lt 2 ]; then
+		echo "Not enough arguments" 2>&1
+		return 1
+	fi
+	diff "${flags[@]}" <( hexdump "${args[1]}" ) <( hexdump "${args[2]}" )
 }
