@@ -275,9 +275,9 @@ weightt()(
 # dir: $CODING_DIR/python/steganography
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 steg()(
-    cd "$CODING_DIR/python/steganography"
-    . venv/bin/activate
-    ./steganography.py "$@"
+    dir="$CODING_DIR/python/steganography"
+    . "$dir/venv/bin/activate"
+    "$dir/steganography.py" "$@"
 )
 
 # just some easy tools for cmake
