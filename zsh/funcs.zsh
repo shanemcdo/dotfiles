@@ -389,3 +389,9 @@ hexdiff() {
 	fi
 	diff "${flags[@]}" <( hexdump "${args[1]}" ) <( hexdump "${args[2]}" )
 }
+
+# https://www.youtube.com/shorts/0Z71je-X6YM
+# split and get field using awk
+field() {
+	awk -F "${2:- }" "{ print \$${1:-1} }"
+}
