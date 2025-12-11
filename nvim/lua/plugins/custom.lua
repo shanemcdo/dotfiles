@@ -39,4 +39,6 @@ return {
   },
   -- disable bufferline
   { "akinsho/bufferline.nvim", enabled = false },
+  -- disable conform (autoformatter)
+  { "stevearc/conform.nvim", enabled = false },
 }
