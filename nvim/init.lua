@@ -11,3 +11,5 @@ vim.o.directory = nvim_base .. "trash"
 vim.o.undodir = vim.o.directory
 vim.o.backupdir = vim.o.directory
 vim.o.viewdir = vim.o.directory
+-- theme
+require('tokyonight').load({ style = "night" })
