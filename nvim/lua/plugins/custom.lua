@@ -9,6 +9,18 @@ return {
         function() require("telescope.builtin").git_files() end,
         desc = "Find Git Files",
       },
+      {
+        "<leader>b",
+        -- stylua: ignore
+        function() require("telescope.builtin").buffers() end,
+        desc = "Find Buffers",
+      },
+      {
+        "<leader>bb",
+        -- stylua: ignore
+        function() require("telescope.builtin").buffers() end,
+        desc = "Find Buffers",
+      },
     },
   },
   -- disable flash
