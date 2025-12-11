@@ -20,4 +20,9 @@ return {
       { "<leader>t", "<leader>fe", desc = "Explorer Snacks", remap = true },
     },
   },
+  {
+    "numToStr/Comment.nvim",
+    -- No luck moved to keymaps.lua
+    -- keys = { { "<leader><space>", "gc", desc = "Comment Out", remap = true } },
+  },
 }
