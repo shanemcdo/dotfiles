@@ -9,3 +9,5 @@ map("n", "<leader>r", vim.lsp.buf.rename)
 vim.keymap.set("", "<leader><space>", "gc", { remap = true })
 vim.keymap.set("n", "<leader>g=", "<leader>ca", { remap = true })
 vim.keymap.del("n", "<leader>qq") -- I don't know where this comes from and I don't want it
+vim.keymap.del("n", "<leader>wm") -- "Something with snacks" Whatever, I don't want it
+vim.keymap.del("n", "<leader>wd") -- "Delete window" I don't want it
