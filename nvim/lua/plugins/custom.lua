@@ -37,4 +37,6 @@ return {
     -- No luck moved to keymaps.lua
     -- keys = { { "<leader><space>", "gc", desc = "Comment Out", remap = true } },
   },
+  -- disable bufferline
+  { "akinsho/bufferline.nvim", enabled = false },
 }
