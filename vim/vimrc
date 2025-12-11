@@ -1,5 +1,6 @@
 " Shane McDonough vimrc with plugins
 source ~/.vim/shared.vim
+color molokai
 set directory=~/.vim/trash/
 set undodir=~/.vim/trash/
 set backupdir=~/.vim/trash/

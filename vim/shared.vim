@@ -1,5 +1,4 @@
 source ~/.vim/minimal.vim
-color molokai
 set encoding=utf-8
 set fo-=tcq
 set undofile
