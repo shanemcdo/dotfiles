@@ -41,4 +41,6 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   -- disable persistence
   { "folke/persistence.nvim", enabled = false },
+  -- enable vim-surround for "cs" keybinds
+  { "tpope/vim-surround" },
 }
