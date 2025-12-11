@@ -116,3 +116,6 @@ alias cpwd="pwd | pbcopy"
 
 # open all chainsaw man chapters
 alias csma="while csm; do ; done"
+
+# change vim to nvim
+alias vim="nvim"
