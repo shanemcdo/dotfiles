@@ -6,3 +6,4 @@ vim.g.autoformat = false
 vim.opt.clipboard = ""
 -- TODO: Figure out why this isn't working
 vim.opt.foldmethod = "manual"
+vim.opt.ignorecase = false
