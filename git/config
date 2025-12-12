@@ -9,7 +9,6 @@
 	repo = /Users/shane/Git/zsh-snap
 	repo = /Users/shane/Git/zsh-syntax-highlighting
 [core]
-	editor = vim
 	ignorecase = false
 [push]
 	autoSetupRemote = true
