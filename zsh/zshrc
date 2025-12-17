@@ -1,13 +1,6 @@
 # allow for colors
 autoload -U colors && colors
 
-# enable ctrl-r to back search
-bindkey '^R' history-incremental-search-backward
-bindkey -e # enable emacs keybinds such as
-# ctrl-a go to start
-# ctrl-k delete everything after
-# ctrl-u cut line
-# ctrl-y paste line
 
 # import other zsh files
 . "$DOTFILES_DIR/zsh/alias.zsh"
@@ -19,3 +12,15 @@ eval "$(zoxide init zsh)"
 
 # set custom prompt
 set_prompt
+
+bindkey -e # enable emacs keybinds such as
+# ctrl-a go to start
+# ctrl-k delete everything after
+# ctrl-u cut line
+# ctrl-y paste line
+# bash-like history search behavior
+function setup_bash_like_ctrl_r() {
+  zle -N history-incremental-search-backward
+  bindkey '^R' history-incremental-search-backward
+}
+zle -N zle-line-init setup_bash_like_ctrl_r
