@@ -7,3 +7,5 @@ vim.opt.clipboard = ""
 -- TODO: Figure out why this isn't working
 vim.opt.foldmethod = "manual"
 vim.opt.ignorecase = false
+-- disable the autocomplete for quotes, parens, and brackets
+vim.g.minipairs_disable = true
