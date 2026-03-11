@@ -8,6 +8,7 @@ map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename Symbol" })
 -- not using map to overwrite existing mapping
 vim.keymap.set("", "<leader><space>", "gc", { remap = true })
 vim.keymap.set("n", "<leader>g=", "<leader>ca", { remap = true })
+vim.keymap.set("n", "<leader>e", ":terminal '%:p'", { remap = true })
 
 -- delete keymaps included in lazyvim I don't like
 vim.keymap.del("n", "<leader>qq") -- I don't know where this comes from and I don't want it
