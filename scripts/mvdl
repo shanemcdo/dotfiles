@@ -19,6 +19,7 @@ $prg [FLAGS] [DEST]
 	  -f PATH, --folder PATH  - Set the downloads folder [Default: "~/Downloads"]
 	  -c, --cp                - Copy instead of move the file
 	  -e, --extension         - Use the extension of the file being copied
+	  -r C, --replace C       - Replace spaces in name with character C
 	  -h, --help              - Print this message
 EOF
 }
@@ -35,6 +36,7 @@ read_args(){
 			--copy) arg='-c';;
 			--extension) arg='-e';;
 			--help) arg='-h';;
+			--replace) arg='-r';;
 		esac
 		case "$arg" in # parse all short flags
 			--*|-) die "unexpected flag '$arg'";;
@@ -44,12 +46,13 @@ read_args(){
 				for flag in $(echo "$flags" | grep -o .); do
 					$need_arg && die "-$flag_n_arg flag expected an argument"
 					case "$flag" in
-						f) need_arg='true' && flag_n_arg="$flag";;
+						f) need_arg=true && flag_n_arg="$flag";;
 						d) $dry_run && die "repeated flag '-$flag'" || dry_run='true';;
 						D) $date && die "repeated flag '-$flag'" || date='true';;
 						s) $silent && die "repeated flag '-$flag'" || silent='true';;
 						c) $copy && die "repeated flag '-$flag'" || copy='true';;
 						e) $use_extension && die "repeated flag '-$flag'" || use_extension='true';;
+						r) need_arg=true && flag_n_arg="$flag";;
 						h) print_help && exit 0;;
 						*) die "unexpected flag '$flag'";;
 					esac
@@ -59,6 +62,7 @@ read_args(){
 					[ $# -gt 0 ] || die "-$flag flag expected an argument"
 					case $flag in
 						f) dl_dir="$1";;
+						r) replace_char="$1";;
 					esac
 					shift
 				fi
@@ -84,6 +88,7 @@ copy='false'
 use_extension='false'
 dest=''
 dl_dir=''
+replace_char=' '
 
 read_args "$@"
 $copy && mv_prg='cp' || mv_prg='mv'
@@ -99,6 +104,12 @@ if $date; then
 		dest="$(basename "$file")"
 	fi
 	dest="$(date "+%Y%m%d")$dest"
+fi
+if [ "$replace_char" != ' ' ]; then
+	if [ "$dest" = '.' ]; then
+		dest="$(basename "$file")"
+	fi
+	dest="$(echo "$dest" | tr ' ' "$replace_char")"
 fi
 $silent || echo "$file -> $dest"
 $dry_run || "$mv_prg" "$file" "$dest"
