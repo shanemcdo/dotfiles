@@ -1,5 +1,5 @@
 #!/bin/sh
 # repo: git@github.com:shanemcdo/image_resizer.git
-# dir: $CODING_DIR/python/ROTN
-# branch: mac
+# dir: $CODING_DIR/python/image_resizer
+# branch: main
 "$CODING_DIR/python/image_resizer/main.py" "$@"
