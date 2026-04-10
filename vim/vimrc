@@ -1,4 +1,4 @@
-" Shane McDonough vimrc with plugins
+" Shane Walker vimrc with plugins
 source ~/.vim/shared.vim
 color molokai
 set directory=~/.vim/trash/

@@ -1,4 +1,4 @@
-" Shane McDonough minimal vimrc
+" Shane Walker minimal vimrc
 syntax on " make sure syntax highlighting is on
 filetype plugin indent on " Auto indent and other file type stuff works
 set nocp " should be first most of the time
