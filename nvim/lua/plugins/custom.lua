@@ -43,4 +43,6 @@ return {
   { "folke/persistence.nvim", enabled = false },
   -- enable vim-surround for "cs" keybinds
   { "tpope/vim-surround" },
+  -- disable noice because it was causing crashes on 2026/07/22
+  { "folke/noice.nvim", enabled = false },
 }
