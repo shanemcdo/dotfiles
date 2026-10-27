@@ -10,6 +10,7 @@ while IFS=',' read -r session dir cmd; do
 		continue
 	fi
 	tmux new-session -d -s "$session" -c "$dir" 
+	tmux send-keys "[ -d venv ] && . venv/bin/activate" C-m
 	tmux split-window -h -c "$dir"
 	tmux send-keys "$cmd" C-m
 done << EOF 
