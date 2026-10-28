@@ -23,7 +23,7 @@ sudo apt install \
 sudo update-alternatives --install /usr/local/bin/python3 python3 $(which python3.10) 1
 
 git config --global user.email "shanemcdman@gmail.com"
-git config --global user.name "Shane McDonough"
+git config --global user.name "Shane Walker"
 
 # install rust
 curl https://sh.rustup.rs | sh
