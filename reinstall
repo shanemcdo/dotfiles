@@ -30,10 +30,6 @@ ln -s "$HOME/dotfiles/tmux/" "$HOME/.config/tmux"
 # make vim trash files
 mkdir "$HOME/dotfiles/vim/trash" "$HOME/dotfiles/vim/views"
 
-# install vim plugins
-vim -c 'PlugInstall' \
-    -c 'qa!'
-
 pip3 install virtualenv
 
 # reinstall script requirements
