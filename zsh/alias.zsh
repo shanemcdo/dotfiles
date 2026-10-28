@@ -119,3 +119,6 @@ alias csma="while csm; do ; done"
 
 # change vim to nvim
 alias vim="nvim"
+
+# use nvim for vimdiff
+alias vimdiff="nvim -d"
